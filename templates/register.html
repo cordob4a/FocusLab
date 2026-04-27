@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusLab -  Registro</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}">
+</head>
+<body>
+    <form action="/register" method="post">
+    
+    <div class="input-group">
+        <label>Nombre</label>
+        <input type="text" name="nombre" required>
+    </div>
+
+    <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
+
+    <div class="input-group">
+        <label>Contraseña</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <button class="btn">Registrarse</button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,6 @@
+fastapi
+python-multipart
+jinja2
+sqlalchemy
+uvicorn
+psycopg2-binary
