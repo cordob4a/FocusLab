@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>FocusLab</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/base.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>FocusLab</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/juegos">Juegos</a>
+        <a href="/mis-tiempos">Mis tiempos</a>
+        <a href="/nosotros">Quiénes Somos</a>
+
+        {% if mail %}
+            <a href="/logout">Cerrar sesión ({{ mail }})</a>
+        {% else %}
+            <a href="/login">Iniciar sesión</a>
+        {% endif %}
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h2>Entrená tu atención jugando</h2>
+        <p>Plataforma orientada a personas con TDAH</p>
+        <a href="/juegos" class="btn">Ver Juegos</a>
+    </div>
+</section>
+
+<section>
+    <h2>Sobre FocusLab</h2>
+
+    <p>
+        FocusLab es una plataforma web diseñada para la evaluación,
+        monitoreo y análisis del rendimiento atencional en personas con TDAH.
+    </p>
+
+    <p>
+        El sistema permite a los usuarios interactuar con ejercicios cognitivos
+        mientras registra su desempeño, generando métricas para analizar su evolución.
+    </p>
+</section>
+
+<footer>
+    <p>© 2026 FocusLab</p>
+</footer>
+
+</body>
+</html>

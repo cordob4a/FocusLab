@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos - FocusLab</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/juegos.css') }}">
+</head>
+<body>
+<header>
+    <h1>FocusLab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/juegos" aria-current="page">Juegos</a>
+        <a href="/nosotros">Quiénes Somos</a>
+        {% if mail %}
+            <a href="/logout">Cerrar sesión ({{ mail }})</a>
+        {% else %}
+            <a href="/login">Iniciar sesión</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main class="page-content">
+    <section class="games-intro">
+        <p class="eyebrow">Entrenamiento cognitivo</p>
+        <h2>Seleccioná un juego</h2>
+        <p>Sesión activa: <strong>{{ mail }}</strong></p>
+    </section>
+
+    <section class="games" aria-label="Juegos disponibles">
+        <article class="game-card">
+            <div class="game-icon" aria-hidden="true">🧠</div>
+            <h3>Memoria visual</h3>
+            <p>Encontrá los pares y registrá tu evolución en tiempo y movimientos.</p>
+            <a href="/memoria" class="btn">Jugar ahora</a>
+            <a href="/mis-tiempos" class="history-link">Ver mis tiempos</a>
+        </article>
+       <article class="game-card">
+        <div class="game-icon" aria-hidden="true">⚡</div>
+        <h3>Reacción visual</h3>
+        <p>Hacé clic en los objetivos antes de que desaparezcan y medí tu velocidad de reacción.</p>
+        <a href="/reaccion" class="btn">Jugar ahora</a>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 FocusLab</p>
+</footer>
+</body>
+</html>

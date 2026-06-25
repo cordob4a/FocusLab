@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis tiempos - FocusLab</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/tiempos.css') }}">
+</head>
+<body>
+<header>
+    <h1>FocusLab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/juegos">Juegos</a>
+        <a href="/memoria">Memoria visual</a>
+        <a href="/mis-tiempos" aria-current="page">Mis tiempos</a>
+        <a href="/nosotros">Quiénes Somos</a>
+        <a href="/logout">Cerrar sesión ({{ mail }})</a>
+    </nav>
+</header>
+
+<main class="times-page">
+    <section class="times-header">
+        <div>
+            <p class="eyebrow">Seguimiento personal</p>
+            <h2>Mis tiempos</h2>
+            <p>
+                Revisá tu evolución en el juego de memoria visual.
+                Partidas completadas: <strong>{{ total_partidas }}</strong>.
+            </p>
+        </div>
+
+        <a class="btn play-button" href="/memoria">Jugar nuevamente</a>
+    </section>
+
+    <section class="summary-grid" aria-label="Resumen por dificultad">
+        {% for item in resumen %}
+        <article class="summary-card">
+            <p class="level-name">{{ item.dificultad }}</p>
+            <p class="pairs">{{ item.pares }} pares</p>
+
+            <div class="summary-stat">
+                <span>Mejor tiempo</span>
+                <strong>{{ item.mejor_tiempo }}</strong>
+            </div>
+
+            <div class="summary-row">
+                <div>
+                    <span>Promedio</span>
+                    <strong>{{ item.promedio }}</strong>
+                </div>
+                <div>
+                    <span>Partidas</span>
+                    <strong>{{ item.partidas }}</strong>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+
+    <section class="history-section">
+        <div class="history-header">
+            <h3>Historial de partidas</h3>
+            <p>Las partidas más recientes aparecen primero.</p>
+        </div>
+
+        {% if historial %}
+        <div class="table-container">
+            <table class="times-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Dificultad</th>
+                        <th>Pares</th>
+                        <th>Tiempo</th>
+                        <th>Movimientos</th>
+                        <th>Marca</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for partida in historial %}
+                    <tr>
+                        <td>{{ partida.fecha }}</td>
+                        <td>{{ partida.dificultad }}</td>
+                        <td>{{ partida.pares }}</td>
+                        <td class="time-value">{{ partida.tiempo }}</td>
+                        <td>{{ partida.movimientos }}</td>
+                        <td>
+                            {% if partida.es_mejor %}
+                                <span class="record-badge">Mejor marca</span>
+                            {% else %}
+                                <span class="normal-result">—</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="empty-history">
+            <p>Todavía no completaste partidas de memoria visual.</p>
+            <a class="btn" href="/memoria">Comenzar primera partida</a>
+        </div>
+        {% endif %}
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 FocusLab</p>
+</footer>
+</body>
+</html>

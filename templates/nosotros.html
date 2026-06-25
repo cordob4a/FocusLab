@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nosotros - FocusLab</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/base.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>FocusLab</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/juegos">Juegos</a>
+        <a href="/nosotros" aria-current="page">Quiénes Somos</a>
+
+        {% if mail %}
+            <a href="/logout">Cerrar sesión ({{ mail }})</a>
+        {% else %}
+            <a href="/login">Iniciar sesión</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+
+    <section>
+        <h2>Quiénes somos</h2>
+
+        <p>
+            FocusLab es una plataforma web desarrollada por Cognitive Solutions,
+            pensada como una herramienta digital para acompañar procesos de evaluación,
+            monitoreo y análisis del rendimiento atencional.
+        </p>
+
+        <p>
+            El sistema está orientado a personas con TDAH y propone ejercicios interactivos
+            que permiten registrar datos de uso, como puntajes, tiempos de respuesta,
+            cantidad de intentos y evolución a lo largo del tiempo.
+        </p>
+
+        <p>
+            Nuestro objetivo no es reemplazar el trabajo de profesionales de la salud o la educación,
+            sino ofrecer una solución tecnológica que facilite la organización de actividades,
+            el seguimiento del progreso y la visualización de resultados de forma clara.
+        </p>
+    </section>
+
+    <section>
+        <h2>Qué busca resolver FocusLab</h2>
+
+        <p>
+            Muchas veces el seguimiento de actividades cognitivas se realiza de forma manual
+            o dispersa, dificultando la comparación de resultados y la observación de avances.
+            FocusLab centraliza esta información en una plataforma web accesible, permitiendo
+            que los datos generados por cada actividad puedan ser consultados posteriormente.
+        </p>
+
+        <p>
+            A partir de los ejercicios realizados, el sistema permite construir un historial
+            que ayuda a analizar el desempeño del usuario en distintas actividades relacionadas
+            con la atención, la memoria y el tiempo de reacción.
+        </p>
+    </section>
+
+    <section>
+        <h2>Nuestra propuesta</h2>
+
+        <p>
+            La propuesta de FocusLab se basa en combinar tecnología, diseño simple y registro
+            de información útil. Cada ejercicio busca ser fácil de comprender, rápido de realizar
+            y capaz de generar métricas que puedan ser utilizadas para analizar el progreso.
+        </p>
+
+        <p>
+            La plataforma está pensada para crecer progresivamente, incorporando nuevos ejercicios,
+            reportes, perfiles de usuario y herramientas de seguimiento para profesionales.
+        </p>
+    </section>
+
+    <section>
+        <h2>Valores del sistema</h2>
+
+        <ul>
+            <li>Accesibilidad desde cualquier navegador web.</li>
+            <li>Interfaz simple y comprensible para el usuario.</li>
+            <li>Registro ordenado de resultados.</li>
+            <li>Visualización del progreso a lo largo del tiempo.</li>
+            <li>Uso responsable de los datos personales.</li>
+            <li>Apoyo al análisis, sin reemplazar la intervención profesional.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Uso previsto</h2>
+
+        <p>
+            FocusLab puede ser utilizado por usuarios individuales, instituciones educativas,
+            centros de apoyo o profesionales que necesiten una herramienta complementaria
+            para registrar actividades y observar la evolución de los resultados.
+        </p>
+
+        <p>
+            En su primera etapa, el sistema se enfoca en funcionalidades básicas: acceso de usuarios,
+            ejercicios interactivos, registro de resultados y consulta del progreso.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 FocusLab - Cognitive Solutions</p>
+</footer>
+
+</body>
+</html>

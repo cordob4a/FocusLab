@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoria visual - FocusLab</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/memoria.css') }}">
+    <script src="{{ url_for('static', path='js/memoria.js') }}" defer></script>
+</head>
+<body>
+<header>
+    <h1>FocusLab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/juegos">Juegos</a>
+         <a href="/mis-tiempos">Mis tiempos</a>
+        <a href="/nosotros">Quiénes Somos</a>
+        <a href="/logout">Cerrar sesión ({{ mail }})</a>
+    </nav>
+</header>
+
+<main class="memory-page">
+    <section class="memory-header">
+        <div>
+            <p class="eyebrow">Memotest</p>
+            <h2>Memoria visual</h2>
+            <p>Recordá la posición de las figuras y encontrá todos los pares.</p>
+        </div>
+        <div class="user-pill">Jugador: <strong>{{ mail }}</strong></div>
+    </section>
+
+    <section class="memory-controls" aria-label="Configuración y métricas">
+        <label class="difficulty-control" for="difficulty">
+            Nivel
+            <select id="difficulty" name="difficulty">
+                <option value="facil">Fácil · 4 pares</option>
+                <option value="normal" selected>Normal · 6 pares</option>
+                <option value="dificil">Difícil · 8 pares</option>
+            </select>
+        </label>
+        <button id="start-button" class="btn primary-action" type="button">Comenzar partida</button>
+        <div class="metric"><span>Tiempo</span><strong id="timer">00:00.0</strong></div>
+        <div class="metric"><span>Movimientos</span><strong id="moves">0</strong></div>
+        <div class="metric"><span>Mejor marca</span><strong id="best-time">—</strong></div>
+        <a href="/juegos" class="exit-game-button" onclick="return confirm('¿Seguro que querés salir del juego? Se perderá el progreso actual.');">
+            Salir del juego
+        </a>        
+    </section>
+
+    <p id="game-message" class="game-message" role="status" aria-live="polite">
+        Elegí una dificultad y comenzá una partida.
+    </p>
+
+    <section id="memory-board" class="memory-board" aria-label="Tablero de memoria"></section>
+</main>
+
+<footer>
+    <p>© 2026 FocusLab</p>
+</footer>
+</body>
+</html>

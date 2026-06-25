@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reacción visual - FocusLab</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/reaccion.css') }}">
+</head>
+<body class="reaction-osu-body">
+<header>
+    <h1>FocusLab</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/juegos">Juegos</a>
+        <a href="/memoria">Memoria visual</a>
+        <a href="/mis-tiempos">Mis tiempos</a>
+        <a href="/reaccion" aria-current="page">Reacción visual</a>
+        <a href="/nosotros">Quiénes Somos</a>
+        <a href="/logout">Cerrar sesión ({{ mail }})</a>
+    </nav>
+</header>
+
+<main class="osu-page">
+    <section class="osu-topbar" aria-label="Panel superior del juego">
+        <div class="song-info">
+            <span class="song-label">Modo</span>
+            <strong>Hit Circles</strong>
+        </div>
+
+        <div class="top-progress-wrap">
+            <div class="top-progress-track">
+                <div id="reaction-progress-bar" class="top-progress-fill"></div>
+            </div>
+            <span id="game-status">Listo para jugar</span>
+        </div>
+
+        <div class="top-score">
+            <span>Puntaje</span>
+            <strong id="reaction-score">000000</strong>
+        </div>
+    </section>
+
+    <section class="osu-shell">
+        <aside class="osu-left-panel">
+            <h2>Reacción visual</h2>
+            <p>
+                Tocá los círculos en orden antes de que el anillo se cierre.
+                El juego registra velocidad, precisión y puntaje.
+            </p>
+
+            <label class="difficulty-control" for="reaction-difficulty">
+                Dificultad
+                <select id="reaction-difficulty">
+                    <option value="facil">Fácil</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="dificil">Difícil</option>
+                </select>
+            </label>
+
+            <button id="reaction-start" class="osu-start-button" type="button">
+                Comenzar
+            </button>
+
+            <a href="/juegos" class="exit-game-button" onclick="return confirm('¿Seguro que querés salir del juego? Se perderá el progreso actual.');">
+                Salir del juego
+            </a>
+
+            <div class="mini-help">
+                <span>Tip</span>
+                <p>Intentá anticipar el siguiente punto sin mover el cursor de más.</p>
+            </div>
+        </aside>
+
+        <section class="osu-playfield-wrap" aria-label="Área principal de juego">
+            <div id="reaction-board" class="osu-playfield">
+                <div id="reaction-message" class="osu-center-message">
+                    <strong>Prepará tu reacción</strong>
+                    <span>Presioná comenzar para iniciar el desafío.</span>
+                </div>
+            </div>
+        </section>
+
+        <aside class="osu-right-panel">
+            <div class="combo-display">
+                <span>Combo</span>
+                <strong id="reaction-combo">0x</strong>
+            </div>
+
+            <div class="metric-list">
+                <div class="metric-card">
+                    <span>Objetivo</span>
+                    <strong id="reaction-progress">0/0</strong>
+                </div>
+                <div class="metric-card ok">
+                    <span>Aciertos</span>
+                    <strong id="reaction-hits">0</strong>
+                </div>
+                <div class="metric-card bad">
+                    <span>Fallos</span>
+                    <strong id="reaction-misses">0</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Promedio</span>
+                    <strong id="reaction-average">—</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Precisión</span>
+                    <strong id="reaction-accuracy">—</strong>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <section id="reaction-result" class="osu-result" hidden></section>
+</main>
+
+<footer>
+    <p>© 2026 FocusLab</p>
+</footer>
+
+<script src="{{ url_for('static', path='js/reaccion.js') }}"></script>
+</body>
+</html>

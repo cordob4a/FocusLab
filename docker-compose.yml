@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    container_name: focuslab_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/focuslab
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    container_name: focuslab_db
+    environment:
+      POSTGRES_DB: focuslab
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: O5d4dM1n$24%OC20!!
+    ports:
+      - "5432:5432"

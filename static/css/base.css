@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+}
+
+header {
+    background: #020617;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+header h1 {
+    margin: 0;
+    color: #38bdf8;
+}
+
+nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    color: #38bdf8;
+}
+
+section {
+    padding: 34px 40px;
+}
+
+.hero {
+    min-height: 300px;
+    background:
+        linear-gradient(135deg, rgba(2, 6, 23, .82), rgba(15, 23, 42, .55)),
+        url('https://images.unsplash.com/photo-1581090700227-1e8e0a4c3a1f');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.hero h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn:hover {
+    filter: brightness(1.07);
+}
+
+.eyebrow {
+    color: #38bdf8;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    margin: 0;
+}
+
+.page-content {
+    max-width: 1120px;
+    min-height: calc(100vh - 140px);
+    margin: 0 auto;
+    padding: 42px 28px;
+}
+
+footer {
+    text-align: center;
+    padding: 24px;
+    color: #94a3b8;
+    border-top: 1px solid #1e293b;
+}
+
+@media (max-width: 680px) {
+    header {
+        padding: 15px 18px;
+        flex-direction: column;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 7px;
+    }
+}
+.exit-game-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #e74c3c;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.exit-game-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.exit-game-button:active {
+    transform: translateY(0);
+}
